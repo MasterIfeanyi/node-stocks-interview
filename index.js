@@ -1,24 +1,45 @@
 const express = require("express");
-const bodyParser = require("body-parser");
-const fetch = require("node-fetch");
-const cors = require("cors");
 require("dotenv").config();
-const connectDB = require("./config/dbConn")
-const tickerRoutes = require("./routes/api/routes")
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
+// custom files
+const connectDB = require("./config/dbConn")
+const corsOptions = require("./config/corsOptions");
+const credentials = require("./middleware/credentials");
+const tickerRoutes = require("./routes/api/tickerRoutes");
+const currencyRoutes = require("./routes/api/currencyRoutes");
+
+
+//initialize express app
 const app = express();
 
-const PORT = 3500 || process.env.PORT
+// port 
+const PORT = process.env.PORT || 3500;
 
 // Connect to MongoDb
 connectDB();
 
-app.use(express.urlencoded({ extended: true }));
+// built-in middleware for json 
 app.use(express.json());
 
-app.use(cors());
-app.options('*', cors());
+// built-in middleware to handle urlencoded form data
+app.use(express.urlencoded({ extended: false }));
 
-app.use(tickerRoutes)
+// add Access-control-allow header
+app.use(credentials);
+
+// Cross Origin Resource Sharing
+app.use(cors(corsOptions));
+
+//middleware for cookies
+app.use(cookieParser());
+
+// app.use(cors());
+// app.options('*', cors());
+
+app.use("/stocks", tickerRoutes);
+
+app.use("/currency", currencyRoutes);
 
 app.listen(PORT, () => console.log(`server is running on ${PORT}`))
