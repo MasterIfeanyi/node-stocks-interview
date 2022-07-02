@@ -4,7 +4,7 @@ This is the backend REST API for the web app I built [stocks](https://ifeanyi-st
 
 To run the app use `npm start`
 
-To install al the dependencies `npm install`
+To install all the dependencies `npm install`
 
 ## env variables
 
@@ -16,11 +16,15 @@ The API service below provides real-time stocks data
 
 [iexcloud](https://iexcloud.io/cloud-login#/register)
 
+the env key is `IEXCLOUD_API_KEY`
+
 **Exchange rate**
 
 This API service was used to convert from one currency to another
 
 [alphaVantage](https://www.alphavantage.co/support/#api-key)
+
+the env key is `ALPHA_VANTAGE_API_KEY`
 
 **Market rate for currencies**
 
@@ -28,9 +32,17 @@ This API service provides live FX exchange rate for multiple currencies
 
 [marketTrade](https://marketdata.tradermade.com/signup)
 
+the env key is `LIVE_API_KEY`
+
 ## Node-fetch
 
 You need to install a package called `node-fetch` to be able to make fetch requests in Node.js
+
+You have to install version two (2) to be able to use `require`
+
+```javascript
+"node-fetch": "^2.6.7",
+```
 
 ## mongo-db
 
