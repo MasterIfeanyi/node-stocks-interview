@@ -78,7 +78,7 @@ const getBatchStocks = async (req, res) => {
         // const response = await fetch(`https://cloud.iexapis.com/stable/stock/aapl/quote?token=${process.env.STOCKS_API_KEY}`)
         const data = await response.json();
         console.log(data)
-        const array = Object.values(data).map(item => ({name: item.quote.symbol, price: item.quote.latestPrice}))
+        const array = Object.values(data).map(item => ({name: item.quote.symbol, price: item.quote.latestPrice, change: item.quote.change}))
         return res.status(200).json({ "data": array })
     } catch (error) {
         return res.status(400).json({"msg": error.message})
