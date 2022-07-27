@@ -10,6 +10,8 @@ const credentials = require("./middleware/credentials");
 const tickerRoutes = require("./routes/api/tickerRoutes");
 const currencyRoutes = require("./routes/api/currencyRoutes");
 
+// IEXCLOUD_API_KEY=pk_60afa0458de54200965c9b7dda763648
+
 
 //initialize express app
 const app = express();
