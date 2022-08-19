@@ -26,6 +26,14 @@ This API service was used to convert from one currency to another
 
 the env key is `ALPHA_VANTAGE_API_KEY`
 
+
+*ALPHA VANTAGE API endpoint became a premium endpoint, so I switched to `exchangeratesapi.io`*
+
+[exchangeratesapi.io](https://exchangeratesapi.io/documentation/#convertcurrency)
+
+the env key is `EXCHANGE_RATES_DATA_API`
+
+
 **Market rate for currencies**
 
 This API service provides live FX exchange rate for multiple currencies
