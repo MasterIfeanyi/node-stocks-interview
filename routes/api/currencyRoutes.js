@@ -9,6 +9,6 @@ router.post("/getExchange", getExchange);
 
 router.post("/saveLive", saveLive)
 
-router.get("/getCurrencyExchange", getCurrencyExchange)
+router.post("/getCurrencyExchange", getCurrencyExchange)
 
 module.exports = router;

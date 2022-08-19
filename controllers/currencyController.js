@@ -63,6 +63,8 @@ const getExchange = async (req, res) => {
 const getCurrencyExchange = async (req, res) => { 
     const {from, to, amount} = req.body
 
+    console.log({from, to})
+
     try{
         const response = await fetch(`https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=${amount}`, requestOptions)
         const data = await response.json(); 
